@@ -2,18 +2,15 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 export default function Header() {
-  const total = useSelector(state =>
-    state.cart.items.reduce((a, i) => a + i.quantity, 0)
-  );
+  const cart = useSelector((state) => state.cart.items);
 
   return (
-    <nav className="header">
-      <h2>Paradise Nursery</h2>
-      <div>
-        <Link to="/">Home</Link>
-        <Link to="/plants">Plants</Link>
-        <Link to="/cart">Cart ({total})</Link>
-      </div>
+    <nav style={{ padding: "10px", background: "#2d6a4f", color: "white" }}>
+      <Link to="/" style={{ margin: "10px", color: "white" }}>Home</Link>
+      <Link to="/plants" style={{ margin: "10px", color: "white" }}>Plants</Link>
+      <Link to="/cart" style={{ margin: "10px", color: "white" }}>
+        Cart ({cart.length})
+      </Link>
     </nav>
   );
-} 
+}
