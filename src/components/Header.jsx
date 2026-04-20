@@ -5,12 +5,26 @@ export default function Header() {
   const cart = useSelector((state) => state.cart.items);
 
   return (
-    <nav style={{ padding: "10px", background: "#2d6a4f", color: "white" }}>
-      <Link to="/" style={{ margin: "10px", color: "white" }}>Home</Link>
-      <Link to="/plants" style={{ margin: "10px", color: "white" }}>Plants</Link>
-      <Link to="/cart" style={{ margin: "10px", color: "white" }}>
-        Cart ({cart.length})
-      </Link>
-    </nav>
+    <header style={{ padding: "20px", background: "#2e7d32", color: "white" }}>
+      <h1 style={{ textAlign: "center" }}>Paradise Nursery</h1>
+
+      <nav style={{ display: "flex", gap: "20px", justifyContent: "center" }}>
+        <Link to="/" style={{ color: "white", textDecoration: "none" }}>
+          Home
+        </Link>
+
+        <Link to="/plants" style={{ color: "white", textDecoration: "none" }}>
+          Plants
+        </Link>
+
+        <Link to="/about" style={{ color: "white", textDecoration: "none" }}>
+          About
+        </Link>
+
+        <Link to="/cart" style={{ color: "white", textDecoration: "none" }}>
+          Cart ({cart.length})
+        </Link>
+      </nav>
+    </header>
   );
 }

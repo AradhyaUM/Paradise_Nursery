@@ -1,3 +1,5 @@
+import Header from "../components/Header";
+
 export default function AboutUs() {
   return (
     <div style={{ padding: "20px", lineHeight: "1.6" }}>

@@ -1,26 +1,22 @@
 import Header from "../components/Header";
-import CartItem from "../components/CartItem";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import CartItem from "../components/CartItem";
 
 export default function CartPage() {
-  const items = useSelector(state => state.cart.items);
-
-  const total = items.reduce((a, i) => a + i.price * i.quantity, 0);
+  const cart = useSelector((state) => state.cart.items);
 
   return (
     <div>
       <Header />
-      <h2>Shopping Cart</h2>
+      <h1>Cart</h1>
 
-      {items.map(i => (
-        <CartItem key={i.id} item={i} />
-      ))}
-
-      <h3>Total: ${total}</h3>
-
-      <Link to="/plants">Continue Shopping</Link>
-      <button onClick={() => alert("Coming Soon")}>Checkout</button>
+      {cart.length === 0 ? (
+        <p>No items in cart</p>
+      ) : (
+        cart.map((item, i) => (
+          <CartItem key={i} item={item} index={i} />
+        ))
+      )}
     </div>
   );
 }

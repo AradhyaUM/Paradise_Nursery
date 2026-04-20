@@ -1,16 +1,17 @@
-import React from "react";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../redux/CartSlice";
 
-export default function ProductCard({ name, description, price, image }) {
+export default function ProductCard({ product }) {
+  const dispatch = useDispatch();
+
   return (
     <div className="card">
-      <img src={image} alt={name} className="card-img" />
-
-      <h3>{name}</h3>
-      <p>{description}</p>
-
-      <h4>${price}</h4>
-
-      <button>Add to Cart</button>
+      <img src={product.image} />
+      <h3>{product.name}</h3>
+      <p>₹{product.price}</p>
+      <button onClick={() => dispatch(addToCart(product))}>
+        Add to Cart
+      </button>
     </div>
   );
 }

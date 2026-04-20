@@ -1,56 +1,26 @@
-import React from "react";
+import Header from "../components/Header";
+import ProductCard from "../components/ProductCard";
 
-const ProductList = () => {
+export default function ProductList() {
   const products = [
-    {
-      id: 1,
-      name: "Aloe Vera",
-      price: 10,
-      image: "https://images.unsplash.com/photo-1593691509543-c55fb32d8de5"
-    },
-    {
-      id: 2,
-      name: "Snake Plant",
-      price: 15,
-      image: "https://images.unsplash.com/photo-1587300003388-59208cc962cb"
-    },
-    {
-      id: 3,
-      name: "Peace Lily",
-      price: 12,
-      image: "https://images.unsplash.com/photo-1598887142487-7c7a6a8d7c5b"
-    }
+    { id: 1, name: "Lavender", price: 15, image: "/Paradise_Nursery/images/lavender.jpg" },
+    { id: 2, name: "Mint", price: 10, image: "/Paradise_Nursery/images/mint.jpg" },
+    { id: 3, name: "Aloe Vera", price: 12, image: "/Paradise_Nursery/images/aloe.jpg" },
+    { id: 4, name: "Tulsi", price: 14, image: "/Paradise_Nursery/images/tulsi.jpg" },
+    { id: 5, name: "Cactus", price: 8, image: "/Paradise_Nursery/images/cactus.jpg" },
+    { id: 6, name: "Succulent", price: 18, image: "/Paradise_Nursery/images/succulent.jpg" }
   ];
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>Product List</h1>
+    <div>
+      <Header />
+      <h1>Plants</h1>
 
-      <div style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
-        {products.map((product) => (
-          <div
-            key={product.id}
-            style={{
-              border: "1px solid #ccc",
-              borderRadius: "10px",
-              padding: "10px",
-              width: "200px",
-              textAlign: "center"
-            }}
-          >
-            <img
-              src={product.image}
-              alt={product.name}
-              style={{ width: "100%", height: "150px", objectFit: "cover" }}
-            />
-            <h3>{product.name}</h3>
-            <p>₹{product.price}</p>
-            <button>Add to Cart</button>
-          </div>
+      <div className="products-grid">
+        {products.map((p) => (
+          <ProductCard key={p.id} product={p} />
         ))}
       </div>
     </div>
   );
-};
-
-export default ProductList;
+}
