@@ -1,44 +1,56 @@
-const products = [
-  {
-    id: 1,
-    name: "Lavender",
-    price: 15,
-    desc: "Relaxing fragrance",
-    image: "https://images.unsplash.com/photo-1501004318641-b39e6451bec6"
-  },
-  {
-    id: 2,
-    name: "Mint",
-    price: 10,
-    desc: "Fresh mint leaves",
-    image: "https://images.unsplash.com/photo-1628556270448-4d4e7b7b7f6a"
-  },
-  {
-    id: 3,
-    name: "Aloe Vera",
-    price: 12,
-    desc: "Healing plant",
-    image: "https://images.unsplash.com/photo-1587502537745-84c3c8b7d6b9"
-  },
-  {
-    id: 4,
-    name: "Tulsi",
-    price: 14,
-    desc: "Boost immunity",
-    image: "https://images.unsplash.com/photo-1592155931584-901ac15763e3"
-  },
-  {
-    id: 5,
-    name: "Cactus",
-    price: 8,
-    desc: "Low maintenance",
-    image: "https://images.unsplash.com/photo-1509423350716-97f2360afc86"
-  },
-  {
-    id: 6,
-    name: "Succulent",
-    price: 18,
-    desc: "Decorative plant",
-    image: "https://images.unsplash.com/photo-1512428813834-c702c7702b78"
-  }
-];
+import React from "react";
+
+const ProductList = () => {
+  const products = [
+    {
+      id: 1,
+      name: "Aloe Vera",
+      price: 10,
+      image: "https://images.unsplash.com/photo-1593691509543-c55fb32d8de5"
+    },
+    {
+      id: 2,
+      name: "Snake Plant",
+      price: 15,
+      image: "https://images.unsplash.com/photo-1587300003388-59208cc962cb"
+    },
+    {
+      id: 3,
+      name: "Peace Lily",
+      price: 12,
+      image: "https://images.unsplash.com/photo-1598887142487-7c7a6a8d7c5b"
+    }
+  ];
+
+  return (
+    <div style={{ padding: "20px" }}>
+      <h1>Product List</h1>
+
+      <div style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
+        {products.map((product) => (
+          <div
+            key={product.id}
+            style={{
+              border: "1px solid #ccc",
+              borderRadius: "10px",
+              padding: "10px",
+              width: "200px",
+              textAlign: "center"
+            }}
+          >
+            <img
+              src={product.image}
+              alt={product.name}
+              style={{ width: "100%", height: "150px", objectFit: "cover" }}
+            />
+            <h3>{product.name}</h3>
+            <p>₹{product.price}</p>
+            <button>Add to Cart</button>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default ProductList;
