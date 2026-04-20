@@ -3,5 +3,5 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/Paradise_Nursery/'   // 👈 THIS EXACT
+  base: '/Paradise_Nursery/'   
 })
