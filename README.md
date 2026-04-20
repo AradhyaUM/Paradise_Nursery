@@ -18,5 +18,5 @@ A React + Redux shopping cart application for house plants.
 - React Router
 
 ## Live Demo
-(Add GitHub Pages link here)
+https://github.com/AradhyaUM/Paradise_Nursery.git
 >>>>>>> b791d6c (initial commit - paradise nursery project)
